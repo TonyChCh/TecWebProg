@@ -51,4 +51,3 @@ function iniciarAnimacion() {
 
     tiempoAnimacion = setTimeout(iniciarAnimacion, 1500);
 }
-
