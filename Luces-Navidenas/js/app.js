@@ -51,3 +51,13 @@ function iniciarAnimacion() {
 
     tiempoAnimacion = setTimeout(iniciarAnimacion, 1500);
 }
+
+// 3. INICIALIZACIÓN
+function inicializar() {
+    // Esta función inicializa la aplicación
+    crearLuces();
+    iniciarAnimacion();
+}
+
+// Iniciar la aplicación cuando cargue la página
+document.addEventListener('DOMContentLoaded', inicializar); 
