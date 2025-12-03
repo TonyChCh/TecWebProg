@@ -8,9 +8,8 @@ const patrones = [patron1, patron2, patron3, patron4, patron5];
 
 let luces = [];
 let indicePatronActual = 0;
-let intervaloAnimacion;
+let velocidad = 1500;
 
-// 2. FUNCIONES PRINCIPALES
 function crearLuces() {
     // Esta función creará los 10 divs de luces
     const app = document.getElementById('app');
@@ -49,14 +48,49 @@ function iniciarAnimacion() {
         indicePatronActual = 0;
     }
 
-    tiempoAnimacion = setTimeout(iniciarAnimacion, 1500);
+    tiempoAnimacion = setTimeout(iniciarAnimacion, velocidad);
 }
 
-// 3. INICIALIZACIÓN
+function crearControles() {
+    const app = document.getElementById('app');
+    const btnPausar = document.createElement('button');
+    const btnSpeed = document.createElement('button');
+    // Botón pausar/reanudar la animación
+    btnPausar.textContent = '⏸️ Pausar';
+    btnPausar.onclick = function() {
+        if (btnPausar.textContent === '⏸️ Pausar') {
+            clearTimeout(tiempoAnimacion);
+            btnPausar.textContent = '▶️ Reanudar';
+        } else {
+            iniciarAnimacion();
+            btnPausar.textContent = '⏸️ Pausar';
+        }
+    };
+    // Botón para acelerar la animación
+    btnSpeed.textContent = '⚡ Acelerar';
+    btnSpeed.onclick = function() {
+        velocidad -= 300;
+        
+        if (velocidad < 300) {
+            velocidad = 1500;
+        }
+
+        btnSpeed.textContent = `⚡ Acelerar (${velocidad}ms)`;
+
+        if (btnPausar.textContent === '⏸️ Pausar') {
+            clearTimeout(tiempoAnimacion);
+            iniciarAnimacion();
+        }
+    }
+    app.appendChild(btnPausar);
+    app.appendChild(btnSpeed);
+}
+
 function inicializar() {
     // Esta función inicializa la aplicación
     crearLuces();
     iniciarAnimacion();
+    crearControles();
 }
 
 // Iniciar la aplicación cuando cargue la página
