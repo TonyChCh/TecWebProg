@@ -34,7 +34,8 @@ function actualizarLuces(patron) {
     // Esta función cambiará los colores según el patrón
     luces.forEach((luz, index) => {
         luz.style.backgroundColor = patron[index];
-        luz.style.boxShadow = `0 0 20px ${patron[index]}, 0 0 40px ${patron[index]}`;
+        luz.style.boxShadow = `0 0 10px ${patron[index]}, 0 0 20px ${patron[index]},
+        0 0 40px ${patron[index]}`;
     });
 }
 
