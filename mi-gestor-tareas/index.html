@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas API</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+        <h1>Gestor de Tareas</h1>
+        <div class="container">
+            <h2>Añadir nuevo ToDo:</h2>
+            <input type="text" id="titulo" placeholder="titulo"/>
+            <input type="text" id="userId" placeholder="userId"/>
+            <label>
+                <input type="checkbox" id="completado"/>
+                Completado
+            </label>
+            <button type="submit" id="btnAgregar">Agregar</button>
+        </div>
+        <h2>Lista de ToDos:</h2>
+        <div id="listaTodos"></div>
+        <script src="script.js"></script>
+    </form>
+</body>
+</html>
