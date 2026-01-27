@@ -28,7 +28,6 @@ function mostrarTodos(todos) {
                 ${todo.completed ? '✅ Completada' : '⬜ Pendiente'}
             </label>
         `;
-        container.appendChild(div);
         container.insertBefore(div, container.firstChild);
     });
 }
@@ -48,6 +47,9 @@ function mostrarError(elem, mensaje) {
     return;
 }
 
+ function validacion(titulo, userId) {
+    
+ }
 
 // 3. Crear nuevo todo
 async function crearTodo() {
